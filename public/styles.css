@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f2f8;
+    color: #222;
+}
+
+header {
+    background-color: #6a3fa0;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.create-post,
+.edit-post {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6a3fa0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #6a3fa0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #512d7d;
+}
+
+.posts h2 {
+    margin-bottom: 20px;
+}
+
+.post-card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.post-card h3 {
+    margin-top: 0;
+}
+
+.post-info {
+    color: #666;
+    font-size: 14px;
+}
+
+.post-content {
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.post-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.post-buttons form {
+    display: inline;
+}
+
+.edit-button,
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: #6a3fa0;
+    color: white;
+    border-radius: 6px;
+}
+
+.edit-button:hover,
+.back-button:hover {
+    background-color: #512d7d;
+}
+
+/* Keep delete buttons red */
+.delete-button {
+    background-color: #b42318;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+.delete-button:hover {
+    background-color: #8f1c14;
+}
+
+.no-posts {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #666;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2d2235;
+    color: white;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 95%;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .create-post,
+    .edit-post,
+    .post-card {
+        padding: 15px;
+    }
+
+    .post-buttons {
+        flex-direction: column;
+    }
+
+    .edit-button,
+    .delete-button {
+        width: 100%;
+        text-align: center;
+    }
+}
