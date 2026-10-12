@@ -1,15 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edit Post</title>
+<title>Edit Post - Blogify</title>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
 <header>
-<h1>Edit Blog Post</h1>
+<h1>Blogify</h1>
+<p>Edit Your Blog Post</p>
 </header>
 
 <main>
@@ -17,31 +19,28 @@
 <section class="edit-post">
 <h2>Edit Post</h2>
 
-<form action="/posts/<%= post.id %>/edit" method="POST">
+<p>Editing as <strong><%= user.name %></strong></p>
 
-<label for="creator">Your Name</label>
-<input type="text" id="creator" name="creator" value="<%= post.creator %>" required>
+<form action="/posts/<%= post.blog_id %>/edit" method="POST">
 
 <label for="title">Blog Title</label>
 <input type="text" id="title" name="title" value="<%= post.title %>" required>
 
 <label for="content">Blog Post</label>
-<textarea id="content" name="content" rows="6" required><%= post.content %></textarea>
+<textarea id="content" name="content" rows="6" required><%= post.body %></textarea>
 
 <button type="submit">Save Changes</button>
 
 </form>
 
-<a href="/" class="back-button">
-Back to Blog
-</a>
+<a href="/" class="back-button">Back to Blog</a>
 
 </section>
 
 </main>
 
 <footer>
-<p>Blog Web App Mini-Project 1</p>
+<p>Blog Web App Mini-Project 3</p>
 </footer>
 
 </body>

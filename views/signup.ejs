@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up - Blogify</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header>
+<h1>Blogify</h1>
+<p>Create Your Account</p>
+</header>
+
+<main>
+
+<section class="create-post">
+<h2>Sign Up</h2>
+
+<% if (typeof error !== "undefined" && error) { %>
+<p class="form-error"><%= error %></p>
+<% } %>
+
+<form action="/signup" method="POST">
+
+<label for="name">Your Name</label>
+<input type="text" id="name" name="name" required>
+
+<label for="user_id">Username</label>
+<input type="text" id="user_id" name="user_id" required>
+
+<label for="password">Password</label>
+<input type="password" id="password" name="password" minlength="8" required>
+
+<button type="submit">Create Account</button>
+
+</form>
+
+<p>Already have an account? <a href="/signin">Sign In</a></p>
+
+<a href="/" class="back-button">Back to Blog</a>
+
+</section>
+
+</main>
+
+<footer>
+<p>Blog Web App Mini-Project 3</p>
+</footer>
+
+</body>
+</html>

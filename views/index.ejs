@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +12,27 @@
 <header>
 <h1>Blogify</h1>
 <p>Create and share your best possible thoughts.</p>
+
+<div class="auth-links">
+<% if (user) { %>
+<p>Welcome, <%= user.name %>!</p>
+<form action="/logout" method="POST">
+<button type="submit">Log Out</button>
+</form>
+<% } else { %>
+<a href="/signin" class="back-button">Sign In</a>
+<a href="/signup" class="back-button">Sign Up</a>
+<% } %>
+</div>
 </header>
 
 <main>
 
+<% if (user) { %>
 <section class="create-post">
 <h2>Create a Post</h2>
 
 <form action="/posts" method="POST">
-
-<label for="creator">Your Name</label>
-<input type="text" id="creator" name="creator" required>
 
 <label for="title">Blog Title</label>
 <input type="text" id="title" name="title" required>
@@ -33,12 +44,18 @@
 
 </form>
 </section>
+<% } else { %>
+<section class="create-post">
+<h2>Want to Create a Post?</h2>
+<p>Please <a href="/signin">sign in</a> or <a href="/signup">create an account</a> first.</p>
+</section>
+<% } %>
 
 <section class="posts">
 <h2>Blog Posts</h2>
 
 <% if (posts.length === 0) { %>
-<p class="no-posts">No posts yet. Create your first post above!</p>
+<p class="no-posts">No posts yet. Create your first post!</p>
 <% } %>
 
 <% posts.forEach(post => { %>
@@ -49,22 +66,21 @@
 
 <p class="post-info">
 Posted by
-<strong><%= post.creator %></strong>
+<strong><%= post.creator_name %></strong>
 on
-<%= post.createdAt %>
+<%= new Date(post.date_created).toLocaleString() %>
 </p>
 
-<p class="post-content">
-<%= post.content %>
-</p>
+<p class="post-content"><%= post.body %></p>
 
+<% if (user && user.user_id === post.creator_user_id) { %>
 <div class="post-buttons">
 
-<a href="/posts/<%= post.id %>/edit" class="edit-button">
+<a href="/posts/<%= post.blog_id %>/edit" class="edit-button">
 Edit
 </a>
 
-<form action="/posts/<%= post.id %>/delete" method="POST">
+<form action="/posts/<%= post.blog_id %>/delete" method="POST">
 
 <button type="submit" class="delete-button">
 Delete
@@ -73,6 +89,7 @@ Delete
 </form>
 
 </div>
+<% } %>
 
 </article>
 
@@ -83,7 +100,7 @@ Delete
 </main>
 
 <footer>
-<p>Blog Web App Mini-Project 1</p>
+<p>Blog Web App Mini-Project 3</p>
 </footer>
 
 </body>
